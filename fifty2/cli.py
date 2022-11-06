@@ -39,14 +39,18 @@ from pdb import set_trace
 
 def main():
     import argparse
-    import fifty2.commands as commands
+    import fifty2.commands.whatis as cw
+    import fifty2.commands.train as ct
+    
     options = docopt(__doc__)
 
-    for k, v in options.items():
-        if hasattr(commands, k):
-            module = getattr(commands, k)
-            commands = getmembers(module, isclass)
-            command = [command[1] for command in commands if command[0] != 'Base'][0]
-            command = command(options)
-            command.run()
+    if "whatis" in options and options["whatis"]:
+        _w = cw.WhatIs(options)
+        _w.run()
+    else:
+        if "train" in options and options["train"]:
+            _w = ct.WhatIs(options)
+            _w.run()
+        else:
+            print("Should be either whatis or train command")
 

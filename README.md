@@ -1,4 +1,27 @@
-![Image Logo](https://github.com/mittalgovind/fifty/blob/master/fifty_logo.png)
+
+# updated
+
+Updated to tensorflow2 version and .toml styled wheel builder.
+
+**build:**
+
+```bash
+python3 -m build
+pip3 install dist/fifty2-0.0.1-py3-none-any.whl
+```
+
+**validate:**
+```bash
+fifty2 whatis <your_file>
+```
+
+**sample output:**
+```bash
+<your_file>: {PPT: 4285.7, PPTX: 4285.7, FLAC: 1428.6}
+```
+
+
+
 # FiFTy: Large-scale File Fragment Type Identification using Neural Networks
 
 FiFTy is a file type classifier that works much like the ``file`` command in Unix-like systems but with much more cool techniques up its sleeve. It beats several previous benchmarks on the biggest play field there is right now.  FiFTy comes with pre-trained models for six scenarios and for block sizes of 512 and 4096 bytes.  It is retrainable for a subset of our studied filetypes and can be scaled up for newer filetypes and other block sizes too. Please find our corresponding paper at https://arxiv.org/abs/1908.06148 and the ready-to-use open access datasets at [FFT-75](https://ieee-dataport.org/open-access/file-fragment-type-fft-75-dataset).

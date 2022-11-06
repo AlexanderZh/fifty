@@ -56,7 +56,8 @@ class WhatIs:
                 pred_probability = self.infer(model, file)
                 self.output_predictions(pred_probability, file_name)
                 del file, file_name
-        except:
+        except Exception as e:
+            print(e)
             pass
         if self.verbose >= 2:
             print('Prediction Complete!')
@@ -97,7 +98,9 @@ class WhatIs:
     def infer(self, model, blocks):
         """Runs the model on the disk image"""
         tic = time.perf_counter()
-        pred_probability = model.predict_proba(blocks)
+        #pred_probability = model.predict_proba(blocks)
+        pred_probability=model.predict(blocks)
+        ###predict_classes=np.argmax(predict_prob,axis=1)
         toc = time.perf_counter()
         if self.verbose >= 2:
             print('Inference time per sample = {} ms'.format((toc - tic) * 1000 / len(blocks)))

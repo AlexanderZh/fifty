@@ -1,0 +1,2 @@
+include fifty2/utilities/labels.json
+include fifty2/utilities/models/*.h5
