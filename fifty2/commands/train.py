@@ -13,7 +13,7 @@ from tensorflow.keras import callbacks, backend
 from tensorflow.keras.utils import to_categorical
 from hyperopt import partial, Trials, fmin, hp, tpe, rand
 
-from fifty.utilities.framework import read_files, make_output_folder, load_labels_tags, get_utilities_dir
+from fifty2.utilities.framework import read_files, make_output_folder, load_labels_tags, get_utilities_dir
 
 
 class Train:

@@ -14,7 +14,7 @@ import matplotlib.pylab as plt
 from matplotlib import rcParams, cycler
 import matplotlib as mpl
 from tensorflow.keras.models import load_model
-from fifty.utilities.framework import read_files, make_output_folder, load_labels_tags, get_utilities_dir
+from fifty2.utilities.framework import read_files, make_output_folder, load_labels_tags, get_utilities_dir
 
 from pdb import set_trace
 

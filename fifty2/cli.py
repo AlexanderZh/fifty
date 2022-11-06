@@ -32,7 +32,6 @@ Options:
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-from . import __version__ as VERSION
 from inspect import getmembers, isclass
 from docopt import docopt
 from pdb import set_trace
@@ -40,8 +39,8 @@ from pdb import set_trace
 
 def main():
     import argparse
-    import fifty.commands as commands
-    options = docopt(__doc__, version=VERSION)
+    import fifty2.commands as commands
+    options = docopt(__doc__)
 
     for k, v in options.items():
         if hasattr(commands, k):
