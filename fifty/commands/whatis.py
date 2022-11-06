@@ -8,14 +8,12 @@ import pandas as pd
 import numpy as np
 import time
 import shutil
-import tensorflow as tf
 import seaborn as sns
 import matplotlib.patches as mpatches
 import matplotlib.pylab as plt
 from matplotlib import rcParams, cycler
 import matplotlib as mpl
-tf.logging.set_verbosity(tf.logging.ERROR)
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from fifty.utilities.framework import read_files, make_output_folder, load_labels_tags, get_utilities_dir
 
 from pdb import set_trace

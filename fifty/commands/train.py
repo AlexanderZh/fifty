@@ -5,15 +5,12 @@ import numpy as np
 import os
 import random
 import pandas as pd
-import tensorflow as tf
-tf.logging.set_verbosity(tf.logging.ERROR)
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-from keras.models import Sequential, load_model
-from keras.layers import Dense, Embedding, Dropout, MaxPool1D, GlobalAveragePooling1D, Conv1D, LeakyReLU
-from keras import callbacks, backend
-from keras.utils.np_utils import to_categorical
-from keras.utils import multi_gpu_model
+from tensorflow.keras.models import Sequential, load_model
+from tensorflow.keras.layers import Dense, Embedding, Dropout, MaxPool1D, GlobalAveragePooling1D, Conv1D, LeakyReLU
+from tensorflow.keras import callbacks, backend
+from tensorflow.keras.utils import to_categorical
 from hyperopt import partial, Trials, fmin, hp, tpe, rand
 
 from fifty.utilities.framework import read_files, make_output_folder, load_labels_tags, get_utilities_dir
@@ -176,9 +173,6 @@ class Train:
                 callbacks.CSVLogger(filename=os.path.join(output, '{}.log'.format(new_model)), append=True)
             ]
 
-            # transform the model to a parallel one if multiple gpus are available.
-            if gpu != 1:
-                model = multi_gpu_model(model, gpus=gpu)
             model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['acc'])
             model.summary()
             history = model.fit(
