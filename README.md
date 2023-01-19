@@ -20,7 +20,18 @@ fifty2 whatis <your_file>
 <your_file>: {PPT: 4285.7, PPTX: 4285.7, FLAC: 1428.6}
 ```
 
+**docker demo:**
+(after building wheel locally)
+```bash
+cd dist
+docker build -t fifty2 .
+docker run --rm -it fifty2
+```
 
+The output should be as follows:
+```bash
+
+```
 
 # FiFTy: Large-scale File Fragment Type Identification using Neural Networks
 
